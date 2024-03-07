@@ -22,7 +22,7 @@ struct ContentView: View {
             HStack(spacing: isFocused ? 0 : 16) {
                 SearchBar(searchText: $controller.searchText, isFocused: $isFocused)
                 FavoriteToggle(isFavorited: $controller.showOnlyFavorites, width: 22, height: 22)
-                    .opacity(isFocused ? 0 : 1)
+                    .hide(if: isFocused)
             }
             
             ScrollView {
