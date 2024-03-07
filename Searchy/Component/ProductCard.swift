@@ -8,36 +8,28 @@
 import SwiftUI
 
 struct ProductCard: View {
+    @Binding var product: Product
+    
     var body: some View {
         VStack(alignment: .leading){
-            //TODO: Image product card with button love
-            ProductTileImage(imageName: .nikeShoe)
+            ProductTileImage(product: $product)
                 .padding(.bottom, 8)
             // Title product
-            Text("Nike Air Force 107 SE(CJ1647-600)")
+            Text(product.name)
                 .font(.headline)
                 .fontWeight(.bold)
-                .foregroundColor(.black)
                 .padding(.bottom, 4)
                 .lineLimit(2) // Limiting to 2 lines for better appearance
-            // Price product
-            Text("RP. \(formatPrice(1200000))")
+            Spacer()
+            Text(product.price.formatPrice())
                 .font(.subheadline)
+                .fontWeight(.bold)
                 .foregroundColor(.pink.opacity(0.8))
         }
-        .frame(width: 200)
-    }
-    
-    // Function to format price
-    func formatPrice(_ price: Int) -> String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        return formatter.string(from: NSNumber(value: price)) ?? ""
+        .frame(width: 150, height: 245)
     }
 }
 
-
-
 #Preview {
-    ProductCard()
+    ProductCard(product: .constant(TestData.products[0]))
 }

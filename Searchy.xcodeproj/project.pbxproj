@@ -20,6 +20,10 @@
 		23134E982B980BFB0069F20C /* FavoriteToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23134E972B980BFB0069F20C /* FavoriteToggle.swift */; };
 		23134E9A2B980C650069F20C /* ProductCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23134E992B980C650069F20C /* ProductCard.swift */; };
 		23134E9C2B9812420069F20C /* ProductTileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23134E9B2B9812420069F20C /* ProductTileImage.swift */; };
+		23134EA02B981C710069F20C /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23134E9F2B981C710069F20C /* TestData.swift */; };
+		23AF65FB2B98259E00004FA2 /* Shoes.json in Resources */ = {isa = PBXBuildFile; fileRef = 23AF65FA2B98259E00004FA2 /* Shoes.json */; };
+		23AF65FE2B98265700004FA2 /* Int+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AF65FD2B98265700004FA2 /* Int+Ext.swift */; };
+		23AF66002B98CB5900004FA2 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AF65FF2B98CB5900004FA2 /* View+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +60,10 @@
 		23134E972B980BFB0069F20C /* FavoriteToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteToggle.swift; sourceTree = "<group>"; };
 		23134E992B980C650069F20C /* ProductCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCard.swift; sourceTree = "<group>"; };
 		23134E9B2B9812420069F20C /* ProductTileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTileImage.swift; sourceTree = "<group>"; };
-		23134E9E2B981BEC0069F20C /* Shoe.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Shoe.json; sourceTree = "<group>"; };
+		23134E9F2B981C710069F20C /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
+		23AF65FA2B98259E00004FA2 /* Shoes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Shoes.json; sourceTree = "<group>"; };
+		23AF65FD2B98265700004FA2 /* Int+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Ext.swift"; sourceTree = "<group>"; };
+		23AF65FF2B98CB5900004FA2 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +114,7 @@
 		23134E622B97FAF70069F20C /* Searchy */ = {
 			isa = PBXGroup;
 			children = (
+				23AF65FC2B98264A00004FA2 /* Extension */,
 				23134E9D2B981BC80069F20C /* TestData */,
 				23134E912B97FC9C0069F20C /* Component */,
 				23134E8E2B97FB5E0069F20C /* Model */,
@@ -174,9 +182,19 @@
 		23134E9D2B981BC80069F20C /* TestData */ = {
 			isa = PBXGroup;
 			children = (
-				23134E9E2B981BEC0069F20C /* Shoe.json */,
+				23134E9F2B981C710069F20C /* TestData.swift */,
+				23AF65FA2B98259E00004FA2 /* Shoes.json */,
 			);
 			path = TestData;
+			sourceTree = "<group>";
+		};
+		23AF65FC2B98264A00004FA2 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				23AF65FD2B98265700004FA2 /* Int+Ext.swift */,
+				23AF65FF2B98CB5900004FA2 /* View+Ext.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				23134E6B2B97FAF90069F20C /* Preview Assets.xcassets in Resources */,
+				23AF65FB2B98259E00004FA2 /* Shoes.json in Resources */,
 				23134E682B97FAF90069F20C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,11 +328,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23134EA02B981C710069F20C /* TestData.swift in Sources */,
 				23134E662B97FAF70069F20C /* ContentView.swift in Sources */,
 				23134E642B97FAF70069F20C /* SearchyApp.swift in Sources */,
 				23134E962B9808A10069F20C /* SearchBar.swift in Sources */,
 				23134E9C2B9812420069F20C /* ProductTileImage.swift in Sources */,
+				23AF65FE2B98265700004FA2 /* Int+Ext.swift in Sources */,
 				23134E902B97FB930069F20C /* Product.swift in Sources */,
+				23AF66002B98CB5900004FA2 /* View+Ext.swift in Sources */,
 				23134E942B97FCD70069F20C /* ProductController.swift in Sources */,
 				23134E982B980BFB0069F20C /* FavoriteToggle.swift in Sources */,
 				23134E9A2B980C650069F20C /* ProductCard.swift in Sources */,

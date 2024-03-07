@@ -8,18 +8,22 @@
 import SwiftUI
 
 struct FavoriteToggle: View {
-    @State var isFavorited = false
+    @Binding var isFavorited: Bool
+    let width: CGFloat
+    let height: CGFloat
     
     var body: some View {
         Button(action: {
             isFavorited.toggle()
         }) {
             Image(systemName: isFavorited ? "heart.fill" : "heart")
+                .resizable()
                 .foregroundColor(isFavorited ? .red : .gray)
+                .frame(width: width, height: height)
         }
     }
 }
 
 #Preview {
-    FavoriteToggle()
+    FavoriteToggle(isFavorited: .constant(false), width: 20, height: 20)
 }

@@ -6,11 +6,19 @@
 //
 
 import SwiftUI
+import Observation
 
-class Product: Codable {
+@Observable
+class Product: Codable{
     var id = UUID()
+    var isFavorite: Bool = false
     let name: String
     let image: String
-    let price: String
-    var isFavorite: Bool
+    let price: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case name
+        case image = "imageURL"
+        case price
+    }
 }

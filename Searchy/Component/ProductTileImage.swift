@@ -8,37 +8,44 @@
 import SwiftUI
 
 struct ProductTileImage: View {
-    var imageName: ImageResource
-    @State var isFavorited: Bool = false
+    @Binding var product: Product
+    @Environment(ProductController.self) private var controller
     
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
-            Image(imageName)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .padding(.top, 30)
-                .frame(width: 200, height: 200)
-                .cornerRadius(12)
-                .background(
-                    RoundedRectangle(cornerRadius: 12)
-                        .foregroundColor(Color.black.opacity(0.15))
-                )
+            AsyncImage(url: URL(string: product.image)) { image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 150, height: 150)
+                    .cornerRadius(20)
+            } placeholder: {
+                ProgressView()
+            }
             
             Button(action: {
-                isFavorited.toggle()
+                product.isFavorite.toggle()
+                controller.saveProducts()
             }) {
-                Image(systemName: isFavorited ? "heart.fill" : "heart")
-                    .resizable()
-                    .frame(width: 25, height: 25)
-                    .foregroundColor(isFavorited ? .red : .white)
-                
-                    .padding()
+                ZStack {
+                    Circle()
+                        .foregroundColor(.white) // Color of the circle
+                        .frame(width: 40, height: 40) // Size of the circle
+                    
+                    Image(systemName: product.isFavorite ? "heart.fill" : "heart")
+                        .resizable()
+                        .fontWeight(.bold)
+                        .frame(width: 20, height: 20)
+                        .foregroundColor(product.isFavorite ? .red : .gray)
+                }
+                .padding(.vertical, 5)
+                .padding(.horizontal, 10)
             }
-            .padding(.top, 30)
         }
     }
 }
 
 #Preview(traits: .sizeThatFitsLayout){
-    ProductTileImage(imageName: .nikeShoe)
+    ProductTileImage(product: .constant(TestData.products[0]))
+        .environment(ProductController())
 }
