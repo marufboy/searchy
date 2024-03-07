@@ -12,8 +12,4 @@ extension View {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder),
                                         to: nil, from: nil, for: nil)
     }
-    
-    func hidden(_ shouldHide: Bool) -> some View {
-        opacity(shouldHide ? 0 : 1)
-    }
 }

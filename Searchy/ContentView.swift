@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @Bindable var controller = ProductController()
+    @FocusState var isFocused: Bool
     
     let gridItems: [GridItem] = [
         GridItem(.flexible(), spacing: 16),
@@ -18,9 +19,10 @@ struct ContentView: View {
     var body: some View {
         VStack {
             //MARK: Header searchbar and favorite toogle
-            HStack(spacing: 16) {
-                SearchBar(searchText: $controller.searchText)
+            HStack(spacing: isFocused ? 0 : 16) {
+                SearchBar(searchText: $controller.searchText, isFocused: $isFocused)
                 FavoriteToggle(isFavorited: $controller.showOnlyFavorites, width: 22, height: 22)
+                    .opacity(isFocused ? 0 : 1)
             }
             
             ScrollView {

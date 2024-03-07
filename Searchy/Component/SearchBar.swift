@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SearchBar: View {
     @Binding var searchText: String
+    @FocusState.Binding var isFocused: Bool
     
     var body: some View {
         HStack{
@@ -30,6 +31,7 @@ struct SearchBar: View {
                             self.endTextEditing()
                         }
                 }
+                .focused($isFocused)
         }
         .font(.headline)
         .padding()
@@ -42,6 +44,6 @@ struct SearchBar: View {
 }
 
 #Preview {
-    SearchBar(searchText: .constant(""))
+    SearchBar(searchText: .constant(""), isFocused: FocusState<Bool>().projectedValue)
         .previewLayout(.sizeThatFits)
 }
