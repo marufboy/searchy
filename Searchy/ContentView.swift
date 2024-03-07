@@ -31,11 +31,9 @@ struct ContentView: View {
                             set: { newValue in
                                 if let index = controller.products.firstIndex(where: { $0.id == product.id }) {
                                     controller.products[index] = newValue
-                                    controller.saveProducts()
                                 }
                             }
                         ))
-                        .environment(controller)
                     }
                 }
                 .padding()
@@ -46,10 +44,7 @@ struct ContentView: View {
             self.endTextEditing()
         }
         .onAppear{
-            controller.loadProducts()
-            if controller.products.isEmpty {
-                controller.saveTestDataToUserDefaults()
-            }
+            controller.initiateProducts()
         }
     }
 }

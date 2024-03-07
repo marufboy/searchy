@@ -9,7 +9,7 @@ import SwiftUI
 import Observation
 
 @Observable
-class Product: Codable{
+class Product: Codable, Identifiable{
     var id = UUID()
     var isFavorite: Bool = false
     let name: String

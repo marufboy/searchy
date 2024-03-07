@@ -27,18 +27,19 @@ class ProductController {
         return filters
     }
     
+    func initiateProducts() {
+        self.loadProducts()
+        if self.products.isEmpty {
+            self.saveTestDataToUserDefaults()
+        }
+    }
+    
     func loadProducts() {
         if let data = UserDefaults.standard.data(forKey: "products"),
            let decodedProducts = try? PropertyListDecoder().decode([Product].self, from: data) {
             self.products = decodedProducts
             print("USER Default Has data product")
             
-        }
-    }
-    
-    func saveProducts() {
-        if let encodedData = try? PropertyListEncoder().encode(self.products) {
-            UserDefaults.standard.set(encodedData, forKey: "products")
         }
     }
     

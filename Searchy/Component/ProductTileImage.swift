@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ProductTileImage: View {
     @Binding var product: Product
-    @Environment(ProductController.self) private var controller
     
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
@@ -25,7 +24,6 @@ struct ProductTileImage: View {
             
             Button(action: {
                 product.isFavorite.toggle()
-                controller.saveProducts()
             }) {
                 ZStack {
                     Circle()
@@ -47,5 +45,4 @@ struct ProductTileImage: View {
 
 #Preview(traits: .sizeThatFitsLayout){
     ProductTileImage(product: .constant(TestData.products[0]))
-        .environment(ProductController())
 }
